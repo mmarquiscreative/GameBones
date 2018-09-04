@@ -13,8 +13,31 @@
 
 <body>
  <div ng-controller="gameNav as nav">
-     <h4>{{nav.location}}</h4>
+         <h3> Current Enemy</h3>
+         <p>{{nav.curRoom.battle.enemies[0].name}}</p>
+         <p>HP: {{nav.curRoom.battle.enemies[0].hp}}</p>
+         <p>ATK: {{nav.curRoom.battle.enemies[0].atk}}</p>
+    <h4>{{nav.curRoom.battle.loot}}</h4>
+
+     <button ng-click="nav.travel('north');">North</button>
+     <button ng-click="nav.travel('east');">East</button>
+     <button ng-click="nav.travel('south');">South</button>
+     <button ng-click="nav.travel('west');">West</button>
+
+ </div>
+ <div ng-controller="battleRoom as battle">
+     <h3>Current Enemy</h3>
+     <p>{{battle.curEnemy.name}}</p>
+    <p>{{battle.curEnemy.hp}}</p>
+     <p>{{battle.curEnemy.atk}}</p>
+     <button ng-click="battle.heroAttack()">Attack</button>
+     
+<h3>Hero</h3>
+     <p>{{battle.hero.name}}</p>
+    <p>{{battle.hero.hp}}</p>
+     <p>{{battle.hero.atk}}</p>
  </div>
 </body>
 
 </html>
+
