@@ -13,6 +13,9 @@
 
 <body>
  <div ng-controller="gameNav as nav">
+        
+         <p>{{nav.curRoom.flavorText}}</p>
+         
          <h3> Current Enemy</h3>
          <p>{{nav.curRoom.battle.enemies[0].name}}</p>
          <p>HP: {{nav.curRoom.battle.enemies[0].hp}}</p>
@@ -36,6 +39,15 @@
      <p>{{battle.hero.name}}</p>
     <p>{{battle.hero.hp}}</p>
      <p>{{battle.hero.atk}}</p>
+ </div>
+ 
+ <div ng-controller="inventoryControl as inv">
+     <h3>Inventory</h3>
+     <div ng-repeat="item in inv.contents">
+         <h4>{{item.name}}</h4>
+         <p>{{item.howMany}}</p>
+         <button ng-click="item.useItem()">Use {{item.name}}</button>
+     </div>
  </div>
 </body>
 
